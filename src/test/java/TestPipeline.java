@@ -16,7 +16,7 @@ public class TestPipeline {
 
     @Test
     void test3() {
-        int m = 1;
-        Assertions.assertEquals(1, m);
+        int m = 10;
+        Assertions.assertEquals(10, m);
     }
 }
