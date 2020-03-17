@@ -37,5 +37,9 @@ public class GlassPage extends Page {
        super.navigateToUrl("projects/SHG?selectedItem=com.codecanvas.glass:glass");
     }
 
-
+    public void navigateToSelectedIssueTypePage() {
+        super.navigateToUrl("projects/SHG?selectedItem=com.codecanvas.glass:glass");
+        driver.findElement(issueTypes).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(improvementIssueType)).click();
+    }
 }
