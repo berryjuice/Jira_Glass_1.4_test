@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +12,6 @@ public class GlassPage extends Page {
     private By general = By.xpath("//li[@id='glass-general-nav']/a");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']/a");
     private By improvementIssueType = By.xpath("//*[@data-issue-type='Improvement']/a");
-    private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
     private By permissions = By.xpath("//li[@id='glass-permissions-nav']/a");
 
     private By componentsTab = By.xpath("//a[@id='aui-uid-1']");
@@ -28,6 +24,7 @@ public class GlassPage extends Page {
     private By workflowLink = By.xpath("//h2[span[contains(text(), 'Workflow')]]/a");
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
+    private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
 
     public GlassPage(WebDriver driver) {
         super(driver);
@@ -41,5 +38,22 @@ public class GlassPage extends Page {
         navigateToGlass();
         driver.findElement(issueTypes).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(improvementIssueType)).click();
+    }
+
+    public void clickShowTransitionLabels() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(showTransitionLabels));
+        wait.until(ExpectedConditions.elementToBeClickable(showTransitionLabels)).click();
+    }
+
+    public boolean allLabelsVisible() {
+        List<WebElement> labels = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(workflowLabels));
+        for (WebElement label : labels) {
+            try {
+                label.isDisplayed();
+            } catch (ElementNotVisibleException | NoSuchElementException e) {
+                return false;
+            }
+        }
+        return true;
     }
 }
