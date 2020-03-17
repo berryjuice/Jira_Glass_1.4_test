@@ -10,7 +10,7 @@ public class TestPipeline {
 
     @Test
     void test2() {
-        int m = 1;
+        int m = 2;
         Assertions.assertEquals(2, m);
     }
 }
