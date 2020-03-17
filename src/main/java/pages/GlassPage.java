@@ -15,6 +15,7 @@ public class GlassPage extends Page {
     private By general = By.xpath("//li[@id='glass-general-nav']/a");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']/a");
     private By improvementIssueType = By.xpath("//*[@data-issue-type='Improvement']/a");
+    private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
     private By permissions = By.xpath("//li[@id='glass-permissions-nav']/a");
 
     private By componentsTab = By.xpath("//a[@id='aui-uid-1']");
