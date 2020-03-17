@@ -38,7 +38,7 @@ public class GlassPage extends Page {
     }
 
     public void navigateToSelectedIssueTypePage() {
-        super.navigateToUrl("projects/SHG?selectedItem=com.codecanvas.glass:glass");
+        navigateToGlass();
         driver.findElement(issueTypes).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(improvementIssueType)).click();
     }
