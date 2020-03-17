@@ -23,7 +23,6 @@
             </plugins>
         </pluginManagement>
     </build>
-<<<<<<< HEAD
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
@@ -46,16 +45,6 @@
             <artifactId>selenium-support</artifactId>
             <version>3.141.59</version>
         </dependency>
-    </dependencies>
-
-=======
-
-    <properties>
-        <maven.compiler.source>1.11</maven.compiler.source>
-        <maven.compiler.target>1.11</maven.compiler.target>
-    </properties>
-
-    <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -72,5 +61,4 @@
             <version>5.6.0</version>
         </dependency>
     </dependencies>
->>>>>>> 790926f1a94d7cd2a13c00ae01a9b17ea3d92bca
 </project>
