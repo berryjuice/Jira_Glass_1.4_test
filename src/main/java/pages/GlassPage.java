@@ -29,6 +29,16 @@ public class GlassPage extends Page {
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
 
+    private By workflowQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/workflows')]");
+    private By screensQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/screens')]");
+    private By basicSummaryQuickLink = By.xpath("//a[contains(@href, '/secure/project/EditProject!default.jspa?pid=10101')]");
+    private By schemesQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/summary')]");
+    private By componentsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/administer-components')]");
+    private By versionsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/administer-versions')]");
+    private By peopleQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/roles')]");
+    private By permissionsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/permissions')]");
+    private By notificationsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/notifications')]");
+
     public GlassPage(WebDriver driver) {
         super(driver);
     }
