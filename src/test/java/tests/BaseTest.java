@@ -14,12 +14,13 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseTest {
     protected static final String BROWSER = System.getenv("browser") != null ? System.getenv("browser") : "chrome";
     protected static final String GRID_URL = System.getenv("grid_url") != null ? System.getenv("grid_url") : "https://selenium:{PASSWORD}@seleniumhub.codecool.codecanvas.hu/wd/hub";
-    protected static final String VALID_PW = System.getenv("default_pw");
+    protected static final String GRID_PW = System.getenv("grid_pw");
+    protected static final String LOGIN_PW = System.getenv("login_pw");
     protected static WebDriver driver;
 
     @BeforeAll
     protected static void setUp() throws MalformedURLException {
-        String fullGridUrl = GRID_URL.replace("{PASSWORD}", VALID_PW);
+        String fullGridUrl = GRID_URL.replace("{PASSWORD}", LOGIN_PW);
         switch (BROWSER) {
             case "chrome":
                 driver = new RemoteWebDriver(new URL(fullGridUrl), new ChromeOptions());

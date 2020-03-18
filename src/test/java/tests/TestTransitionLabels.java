@@ -12,7 +12,7 @@ public class TestTransitionLabels extends BaseTest {
     @Test
     void transitionLabels() {
         loginPage.navigateToLoginPage();
-        loginPage.loginWithCredentials("sysadmin", "user15");
+        loginPage.loginWithCredentials("sysadmin", LOGIN_PW);
         glassPage.navigateToSelectedIssueTypePage();
         glassPage.clickShowTransitionLabels();
         Assertions.assertTrue(glassPage.allLabelsVisible());
