@@ -4,11 +4,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
-
 public class GlassPage extends Page {
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']/a");
     private By improvementIssueType = By.xpath("//*[@data-issue-type='Improvement']/a");
-    private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
     private By general = By.xpath("//li[@id='glass-general-nav']/a");
     private By people = By.xpath("//li[@id='glass-people-nav']/a");
     private By permissions = By.xpath("//li[@id='glass-permissions-nav']/a");

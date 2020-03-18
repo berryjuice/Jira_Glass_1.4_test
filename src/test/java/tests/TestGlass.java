@@ -35,22 +35,22 @@ public class TestGlass extends BaseTest {
     @Test
     void screenQuickLink() {
         glassPage.navigateToSelectedIssueTypePage();
-        Assertions.assertTrue(glassPage.isWorkflowQuickLinkExist());
+        Assertions.assertTrue(glassPage.isSchemesQuickLinkExist());
     }
     @Test
     void peopleQuickLink() {
         glassPage.navigateToPeopleTab();
-        Assertions.assertTrue(glassPage.isWorkflowQuickLinkExist());
+        Assertions.assertTrue(glassPage.isPeopleQuickLinkExist());
     }
     @Test
     void permissionsQuickLink() {
         glassPage.navigateToPermissionsTab();
-        Assertions.assertTrue(glassPage.isWorkflowQuickLinkExist());
+        Assertions.assertTrue(glassPage.isPermissionsQuickLinkExist());
     }
     @Test
     void notificationsQuickLink() {
         glassPage.navigateToNotificationsTab();
-        Assertions.assertTrue(glassPage.isWorkflowQuickLinkExist());
+        Assertions.assertTrue(glassPage.isNotificationsQuickLinkExist());
     }
 
 }
