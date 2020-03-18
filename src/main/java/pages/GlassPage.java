@@ -16,11 +16,6 @@ public class GlassPage extends Page {
     private By versionsTab = By.xpath("//a[@id='aui-uid-2']");
     private By schemesTab = By.xpath("//a[@id='aui-uid-3']");
 
-    private By basicSummaryLink = By.xpath("//h2[contains(text(), 'Basic Summary')]/a");
-    private By componentsLink = By.xpath("//h2[span[contains(text(), 'Components')]]/a");
-    private By permissionsLink = By.xpath("//h2[span[contains(text(), 'Permission')]]/a");
-    private By workflowLink = By.xpath("//h2[span[contains(text(), 'Workflow')]]/a");
-
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
     private By workflowLabels = By.xpath("//*[@id='workflow-designer1']//*[local-name()='svg']//*[local-name()='text']");
 

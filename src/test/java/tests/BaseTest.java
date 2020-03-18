@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import pages.LoginPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,6 +32,8 @@ public abstract class BaseTest {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+        new LoginPage(driver).loginWithCredentials("sysadmin", LOGIN_PW);
     }
 
     @AfterAll
