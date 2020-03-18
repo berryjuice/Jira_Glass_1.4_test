@@ -11,12 +11,6 @@ public class TestWorkflow extends BaseTest {
     private ProjectSHGPage projectSHGPage = new ProjectSHGPage(driver);
 
     @Test
-    void login() {
-        loginPage.navigateToLoginPage();
-        loginPage.loginWithCredentials("sysadmin", "user15");
-    }
-
-    @Test
     void transitionStatusStep1() {
         projectSHGPage.navigateToSHGPage();
         String projectTitle = projectSHGPage.getProjectTitle();
