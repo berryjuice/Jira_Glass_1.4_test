@@ -1,11 +1,8 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GlassPage extends Page {
@@ -24,7 +21,7 @@ public class GlassPage extends Page {
     private By workflowLink = By.xpath("//h2[span[contains(text(), 'Workflow')]]/a");
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
-    private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
+    private By workflowLabels = By.xpath("//*[@id='workflow-designer1']//*[local-name()='svg']//*[local-name()='text']");
 
     private By workflowQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/workflows')]");
     private By screensQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/screens')]");
