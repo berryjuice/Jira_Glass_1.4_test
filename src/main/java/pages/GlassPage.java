@@ -12,11 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GlassPage extends Page {
-    private By general = By.xpath("//li[@id='glass-general-nav']/a");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']/a");
     private By improvementIssueType = By.xpath("//*[@data-issue-type='Improvement']/a");
     private By workflowLabels = By.xpath("//div[@id='workflow-designer1']/svg/text");
+    private By general = By.xpath("//li[@id='glass-general-nav']/a");
+    private By people = By.xpath("//li[@id='glass-people-nav']/a");
     private By permissions = By.xpath("//li[@id='glass-permissions-nav']/a");
+    private By notifications = By.xpath("//li[@id='glass-notifications-nav']/a");
 
     private By componentsTab = By.xpath("//a[@id='aui-uid-1']");
     private By versionsTab = By.xpath("//a[@id='aui-uid-2']");
@@ -44,7 +46,7 @@ public class GlassPage extends Page {
     }
 
     public void navigateToGlass() {
-       super.navigateToUrl("projects/SHG?selectedItem=com.codecanvas.glass:glass");
+        super.navigateToUrl("projects/SHG?selectedItem=com.codecanvas.glass:glass");
     }
 
     public void navigateToSelectedIssueTypePage() {
@@ -52,4 +54,123 @@ public class GlassPage extends Page {
         driver.findElement(issueTypes).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(improvementIssueType)).click();
     }
+
+    public void navigateToGeneralTab() {
+        navigateToGlass();
+        driver.findElement(general).click();
+    }
+
+    public void navigateToComponentsTab() {
+        navigateToGeneralTab();
+        driver.findElement(componentsTab).click();
+    }
+
+    public void navigateToVersionsTab() {
+        navigateToGeneralTab();
+        driver.findElement(versionsTab).click();
+    }
+
+    public void navigateToSchemesTab() {
+        navigateToGeneralTab();
+        driver.findElement(schemesTab).click();
+    }
+
+    public void navigateToPeopleTab() {
+        navigateToGlass();
+        driver.findElement(people).click();
+    }
+
+    public void navigateToPermissionsTab() {
+        navigateToGlass();
+        driver.findElement(permissions).click();
+    }
+
+    public void navigateToNotificationsTab() {
+        navigateToGlass();
+        driver.findElement(notifications).click();
+    }
+
+
+    public boolean isBasicSummaryQuickLinkExist() {
+        try {
+            driver.findElement(basicSummaryQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isComponentsQuickLinkExist() {
+        try {
+            driver.findElement(componentsQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isVersionsQuickLinkExist() {
+        try {
+            driver.findElement(versionsQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSchemesQuickLinkExist() {
+        try {
+            driver.findElement(schemesQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isWorkflowQuickLinkExist() {
+        try {
+            driver.findElement(workflowQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isScreenQuickLinkExist() {
+        try {
+            driver.findElement(screensQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isPeopleQuickLinkExist() {
+        try {
+            driver.findElement(peopleQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isPermissionsQuickLinkExist() {
+        try {
+            driver.findElement(permissionsQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isNotificationsQuickLinkExist() {
+        try {
+            driver.findElement(notificationsQuickLink);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
+
 }
