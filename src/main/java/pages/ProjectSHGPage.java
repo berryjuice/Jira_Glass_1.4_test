@@ -13,18 +13,19 @@ public class ProjectSHGPage extends Page {
 
     // Fields
     private By projectTitle = By.xpath("//h1[text()='Shattered Glass - Project Configuration Documentation']");
-    private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']");
-    private By improvement = By.xpath("//span[contains(text), 'Improvement']");
-    private By issueTypeTitle = By.xpath("//h2[contains(text), 'Selected issue type - ']");
-    private By workflowTransitionsToTestAllInReview = By.xpath("//b[text()='ToTestAll']//ancestor::td//following-sibling::td/span");
+    private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']//a[@class='glass-dropdown']//div[@aria-owns='dropdown-issuetypes']");
+    private By workflowTransitionsToTestAllInReview = By.xpath("//div[@role='group']//a[@role='menuitem']//span[text()=' Improvement']");
+    private By issueTypeTitle = By.xpath("//h2[@id='glass-workflow-panel-title']");
+    private By transitionName = By.xpath("//tr[@class='transition-row']//td[@class='transition-name']//span//b[text()='ToTestAll']");
+    private By fromStatus = By.xpath("//b[text()='ToTestAll']//ancestor::td//following-sibling::td/span");
 
     // Methods
     public void navigateToSHGPage() {
-        navigateToUrl("secure/Dashboard.jspa");
+        navigateToUrl("projects/SHG");
     }
 
     public String getProjectTitle() {
-        navigateToUrl("/projects/SHG");
+        navigateToSHGPage();
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(projectTitle)).getText();
         } catch (NoSuchElementException e) {
@@ -32,9 +33,16 @@ public class ProjectSHGPage extends Page {
         }
     }
 
-    public boolean selectWorkflow() {
+    public String selectWorkflow() {
+        navigateToSHGPage();
         driver.findElement(issueTypes).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(improvement)).click();
-        return wait.until(ExpectedConditions.presenceOfElementLocated(issueTypeTitle)).isDisplayed();
+        wait.until(ExpectedConditions.presenceOfElementLocated(workflowTransitionsToTestAllInReview)).click();
+        return driver.findElement(issueTypeTitle).getText();
+    }
+
+    public String checkWorkflowStatus() {
+        selectWorkflow();
+        return driver.findElement(fromStatus).getText();
+
     }
 }

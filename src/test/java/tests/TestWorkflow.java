@@ -1,13 +1,10 @@
 package tests;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.LoginPage;
 import pages.ProjectSHGPage;
 
 public class TestWorkflow extends BaseTest {
-    private LoginPage loginPage = new LoginPage(driver);
     private ProjectSHGPage projectSHGPage = new ProjectSHGPage(driver);
 
     @Test
@@ -19,11 +16,12 @@ public class TestWorkflow extends BaseTest {
 
     @Test
     void transitionStatusStep2() {
-        Assertions.assertTrue(projectSHGPage.selectWorkflow());
+        String title = projectSHGPage.selectWorkflow();
+        Assertions.assertEquals("Selected Issue Type - Improvement", title);
     }
 
     @Test
     void transitionStatusStep3() {
-
+        Assertions.assertEquals("IN REVIEW", projectSHGPage.checkWorkflowStatus());
     }
 }
