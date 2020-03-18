@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.GlassPage;
 
-public class TestGlass extends BaseTest {
+public class TestQuickLinks extends BaseTest {
     private GlassPage glassPage = new GlassPage(driver);
 
     @Test
