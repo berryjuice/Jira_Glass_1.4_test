@@ -35,7 +35,7 @@ public class TestGlass extends BaseTest {
     @Test
     void screenQuickLink() {
         glassPage.navigateToSelectedIssueTypePage();
-        Assertions.assertTrue(glassPage.isSchemesQuickLinkExist());
+        Assertions.assertTrue(glassPage.isScreenQuickLinkExist());
     }
     @Test
     void peopleQuickLink() {
