@@ -24,6 +24,5 @@ public class TestWorkflow extends BaseTest {
 
     @Test
     void transitionStatusStep3() {
-
     }
 }

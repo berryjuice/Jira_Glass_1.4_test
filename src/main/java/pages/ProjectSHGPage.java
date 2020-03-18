@@ -12,7 +12,7 @@ public class ProjectSHGPage extends Page {
     }
 
     // Fields
-    private By projectTitle = By.xpath("//h1[text()='Shattered Glass - Project Configuration Documentation']");
+    private By projectTitle = By.xpath("//*[@id='sidebar-page-container']//h1");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']");
     private By improvement = By.xpath("//span[contains(text), 'Improvement']");
     private By issueTypeTitle = By.xpath("//h2[contains(text), 'Selected issue type - ']");
@@ -24,7 +24,7 @@ public class ProjectSHGPage extends Page {
     }
 
     public String getProjectTitle() {
-        navigateToUrl("/projects/SHG");
+        navigateToUrl("projects/SHG");
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(projectTitle)).getText();
         } catch (NoSuchElementException e) {
