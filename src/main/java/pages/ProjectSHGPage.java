@@ -12,7 +12,7 @@ public class ProjectSHGPage extends Page {
     }
 
     // Fields
-    private By projectTitle = By.xpath("//h1[text()='Shattered Glass - Project Configuration Documentation']");
+    private By projectTitle = By.xpath("//*[@id='sidebar-page-container']//h1");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']//a[@class='glass-dropdown']//div[@aria-owns='dropdown-issuetypes']");
     private By workflowTransitionsToTestAllInReview = By.xpath("//div[@role='group']//a[@role='menuitem']//span[text()=' Improvement']");
     private By issueTypeTitle = By.xpath("//h2[@id='glass-workflow-panel-title']");
