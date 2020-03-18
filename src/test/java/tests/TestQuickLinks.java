@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.GlassPage;
 
-public class TestGlass extends BaseTest {
+public class TestQuickLinks extends BaseTest {
     private GlassPage glassPage = new GlassPage(driver);
 
     @Test
@@ -35,7 +35,7 @@ public class TestGlass extends BaseTest {
     @Test
     void screenQuickLink() {
         glassPage.navigateToSelectedIssueTypePage();
-        Assertions.assertTrue(glassPage.isSchemesQuickLinkExist());
+        Assertions.assertTrue(glassPage.isScreenQuickLinkExist());
     }
     @Test
     void peopleQuickLink() {

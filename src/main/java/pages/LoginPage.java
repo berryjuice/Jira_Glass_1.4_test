@@ -18,11 +18,12 @@ public class LoginPage extends Page {
     private By profileIcon = By.xpath("//a[@id='header-details-user-fullname']");
 
     // Methods
-    public void navigateToLoginPage() {
+    private void navigateToLoginPage() {
         navigateToUrl("secure/Dashboard.jspa");
     }
 
     public void loginWithCredentials(String username, String password) {
+        navigateToLoginPage();
         driver.findElement(usernameInputField).sendKeys(username);
         driver.findElement(passwordInputField).sendKeys(password);
         driver.findElement(loginButton).click();
