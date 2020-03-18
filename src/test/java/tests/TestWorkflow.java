@@ -24,4 +24,10 @@ public class TestWorkflow extends BaseTest {
     void transitionStatusStep3() {
         Assertions.assertEquals("IN REVIEW", projectSHGPage.checkWorkflowStatus());
     }
+
+    @Test
+    void transitionType() {
+        String type = projectSHGPage.checkWorkflowType();
+        Assertions.assertEquals("Unique", type);
+    }
 }

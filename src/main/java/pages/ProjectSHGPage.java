@@ -18,6 +18,7 @@ public class ProjectSHGPage extends Page {
     private By issueTypeTitle = By.xpath("//h2[@id='glass-workflow-panel-title']");
     private By transitionName = By.xpath("//tr[@class='transition-row']//td[@class='transition-name']//span//b[text()='ToTestAll']");
     private By fromStatus = By.xpath("//b[text()='ToTestAll']//ancestor::td//following-sibling::td/span");
+    private By type = By.xpath("//b[text()='ToTestAll']//ancestor::td//following-sibling::td/span//ancestor::td//following-sibling::td");
 
     // Methods
     public void navigateToSHGPage() {
@@ -43,6 +44,12 @@ public class ProjectSHGPage extends Page {
     public String checkWorkflowStatus() {
         selectWorkflow();
         return driver.findElement(fromStatus).getText();
+
+    }
+
+    public String checkWorkflowType() {
+        selectWorkflow();
+        return driver.findElement(type).getText();
 
     }
 }
