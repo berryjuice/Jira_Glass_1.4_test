@@ -12,10 +12,11 @@ public class ProjectSHGPage extends Page {
     }
 
     // Fields
-    private By projectTitle = By.xpath("//h1[contains(text), 'Shattered Glass - Project Configuration Documentation']");
+    private By projectTitle = By.xpath("//h1[text()='Shattered Glass - Project Configuration Documentation']");
     private By issueTypes = By.xpath("//li[@id='glass-workflow-nav']");
     private By improvement = By.xpath("//span[contains(text), 'Improvement']");
     private By issueTypeTitle = By.xpath("//h2[contains(text), 'Selected issue type - ']");
+    private By workflowTransitionsToTestAllInReview = By.xpath("//b[text()='ToTestAll']//ancestor::td//following-sibling::td/span");
 
     // Methods
     public void navigateToSHGPage() {
@@ -23,6 +24,7 @@ public class ProjectSHGPage extends Page {
     }
 
     public String getProjectTitle() {
+        navigateToUrl("/projects/SHG");
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(projectTitle)).getText();
         } catch (NoSuchElementException e) {
@@ -30,9 +32,9 @@ public class ProjectSHGPage extends Page {
         }
     }
 
-    public void selectWorkflow() {
+    public boolean selectWorkflow() {
         driver.findElement(issueTypes).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(improvement)).click();
-
+        return wait.until(ExpectedConditions.presenceOfElementLocated(issueTypeTitle)).isDisplayed();
     }
 }
