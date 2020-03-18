@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -20,7 +19,7 @@ public class LoginPage extends Page {
 
     // Methods
     public void navigateToLoginPage() {
-        navigateToUrl("/secure/Dashboard.jspa");
+        navigateToUrl("secure/Dashboard.jspa");
     }
 
     public void loginWithCredentials(String username, String password) {
