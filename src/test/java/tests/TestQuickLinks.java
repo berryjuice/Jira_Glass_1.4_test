@@ -1,12 +1,8 @@
 package tests;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import pages.GlassPage;
 import pages.LoginPage;
 
@@ -23,8 +19,7 @@ public class TestQuickLinks extends BaseTest {
     }
 
     @Test
-    void basicSummaryQuickLink(String user) {
-        loginPage.loginWithCredentials(user, LOGIN_PW);
+    void basicSummaryQuickLink() {
         glassPage.navigateToGeneralTab();
         Assertions.assertTrue(glassPage.isBasicSummaryQuickLinkExist());
     }
