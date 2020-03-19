@@ -58,15 +58,15 @@ public class GlassPage extends Page {
     }
 
     private boolean areAllElementsVisible(By by) {
-        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
-        for (WebElement element : elements) {
-            try {
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+            for (WebElement element : elements) {
                 element.isDisplayed();
-            } catch (ElementNotVisibleException | NoSuchElementException | TimeoutException e) {
-                return false;
             }
+            return true;
+        } catch (ElementNotVisibleException | NoSuchElementException | TimeoutException e) {
+            return false;
         }
-        return true;
     }
 
     public void navigateToGeneralTab() {
