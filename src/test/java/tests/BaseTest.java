@@ -21,7 +21,8 @@ public abstract class BaseTest {
 
     @BeforeAll
     protected static void setUp() throws MalformedURLException {
-        String fullGridUrl = GRID_URL.replace("{PASSWORD}", GRID_PW);
+//        String fullGridUrl = GRID_URL.replace("{PASSWORD}", GRID_PW);
+        String fullGridUrl = "http://192.168.0.106:4444/wd/hub";
         switch (BROWSER) {
             case "chrome":
                 driver = new RemoteWebDriver(new URL(fullGridUrl), new ChromeOptions());
@@ -32,8 +33,6 @@ public abstract class BaseTest {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-
-        new LoginPage(driver).loginWithCredentials("sysadmin", LOGIN_PW);
     }
 
     @AfterAll

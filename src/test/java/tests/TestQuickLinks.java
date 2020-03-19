@@ -1,14 +1,30 @@
 package tests;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import pages.GlassPage;
+import pages.LoginPage;
+
+import java.net.MalformedURLException;
 
 public class TestQuickLinks extends BaseTest {
     private GlassPage glassPage = new GlassPage(driver);
+    private LoginPage loginPage = new LoginPage(driver);
+
+    @BeforeAll
+    protected static void setUp() throws MalformedURLException {
+        BaseTest.setUp();
+        new LoginPage(driver).loginWithCredentials("sysadmin", LOGIN_PW);
+    }
 
     @Test
-    void basicSummaryQuickLink() {
+    void basicSummaryQuickLink(String user) {
+        loginPage.loginWithCredentials(user, LOGIN_PW);
         glassPage.navigateToGeneralTab();
         Assertions.assertTrue(glassPage.isBasicSummaryQuickLinkExist());
     }

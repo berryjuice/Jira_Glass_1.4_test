@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class Page {
-    static final int TIMEOUT = System.getenv("timeout") != null ? Integer.parseInt(System.getenv("timeout")) : 5;
+    static final int TIMEOUT = System.getenv("timeout") != null ? Integer.parseInt(System.getenv("timeout")) : 10;
     static final String BASE_URL = System.getenv("base_url") != null ? System.getenv("base_url") : "https://jira2.codecool.codecanvas.hu/";
     WebDriver driver;
     WebDriverWait wait;
