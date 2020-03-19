@@ -31,7 +31,6 @@ public abstract class BaseTest {
                 driver = new RemoteWebDriver(new URL(fullGridUrl), new FirefoxOptions());
                 break;
         }
-//        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
