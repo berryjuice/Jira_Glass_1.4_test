@@ -12,9 +12,9 @@ public class GlassPage extends Page {
     private By permissions = By.xpath("//li[@id='glass-permissions-nav']/a");
     private By notifications = By.xpath("//li[@id='glass-notifications-nav']/a");
 
-    private By componentsTab = By.xpath("//a[@id='aui-uid-1']");
-    private By versionsTab = By.xpath("//a[@id='aui-uid-2']");
-    private By schemesTab = By.xpath("//a[@id='aui-uid-3']");
+    private By componentsTab = By.xpath("//a[text()='Components']");
+    private By versionsTab = By.xpath("//a[text()='Versions']");
+    private By schemesTab = By.xpath("//a[text()='Schemes']");
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
     private By workflowLabels = By.xpath("//*[@id='workflow-designer1']//*[local-name()='svg']//*[local-name()='text']");
