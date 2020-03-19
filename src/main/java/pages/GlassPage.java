@@ -58,11 +58,11 @@ public class GlassPage extends Page {
         return areAllElementsVisible(gearsIcons);
     }
 
-    private boolean areAllElementsVisible(By ByForElements) {
-        List<WebElement> gears = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(gearsIcons));
-        for (WebElement gear : gears) {
+    private boolean areAllElementsVisible(By by) {
+        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+        for (WebElement element : elements) {
             try {
-                gear.isDisplayed();
+                element.isDisplayed();
             } catch (ElementNotVisibleException | NoSuchElementException e) {
                 return false;
             }
