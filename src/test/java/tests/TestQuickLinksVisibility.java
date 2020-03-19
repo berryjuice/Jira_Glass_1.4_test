@@ -19,7 +19,7 @@ public class TestQuickLinksVisibility extends BaseTest {
     @ParameterizedTest
     @ValueSource(strings = {"sysadmin", "projectadmin", "softwareuser"})
     void quickLinksVisible(String user) {
-        loginPage.loginWithCredentials(user, "user15");
+        loginPage.loginWithCredentials(user, LOGIN_PW);
         glassPage.navigateToGeneralTab();
         boolean expectedResult = !user.equals("softwareuser");
         Assertions.assertEquals(expectedResult, glassPage.isBasicSummaryQuickLinkExist());
