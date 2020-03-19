@@ -18,6 +18,7 @@ public class GlassPage extends Page {
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
     private By workflowLabels = By.xpath("//*[@id='workflow-designer1']//*[local-name()='svg']//*[local-name()='text']");
+    private By gearsIcons = By.xpath("//*[@id='glass-general-schemes-panel']//table//a");
 
     private By workflowQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/workflows')]");
     private By screensQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/screens')]");
@@ -28,8 +29,6 @@ public class GlassPage extends Page {
     private By peopleQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/roles')]");
     private By permissionsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/permissions')]");
     private By notificationsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/notifications')]");
-
-    private By gearsIcons = By.xpath("//*[@id='glass-general-schemes-panel']//table//a");
 
     public GlassPage(WebDriver driver) {
         super(driver);
@@ -58,16 +57,16 @@ public class GlassPage extends Page {
         return areAllElementsVisible(gearsIcons);
     }
 
-    private boolean areAllElementsVisible(By ByForElements) {
-        List<WebElement> gears = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(gearsIcons));
-        for (WebElement gear : gears) {
-            try {
-                gear.isDisplayed();
-            } catch (ElementNotVisibleException | NoSuchElementException e) {
-                return false;
+    private boolean areAllElementsVisible(By by) {
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+            for (WebElement element : elements) {
+                element.isDisplayed();
             }
+            return true;
+        } catch (ElementNotVisibleException | NoSuchElementException | TimeoutException e) {
+            return false;
         }
-        return true;
     }
 
     public void navigateToGeneralTab() {
