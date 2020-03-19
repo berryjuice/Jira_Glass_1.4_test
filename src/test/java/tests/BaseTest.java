@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
-    protected static final String BROWSER = System.getenv("browser") != null ? System.getenv("browser") : "chrome";
+    protected static final String BROWSER = System.getenv("browser") != null ? System.getenv("browser") : "firefox";
     protected static final String GRID_URL = System.getenv("grid_url") != null ? System.getenv("grid_url") : "https://selenium:{PASSWORD}@seleniumhub.codecool.codecanvas.hu/wd/hub";
     protected static final String GRID_PW = System.getenv("grid_pw");
     protected static final String LOGIN_PW = System.getenv("login_pw");

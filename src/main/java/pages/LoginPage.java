@@ -22,7 +22,7 @@ public class LoginPage extends Page {
 
     // Methods
     private void navigateToLoginPage() {
-        navigateToUrl("secure/Dashboard.jspa");
+        navigateToUrl("Dashboard.jspa");
     }
 
     public void loginWithCredentials(String username, String password) {
