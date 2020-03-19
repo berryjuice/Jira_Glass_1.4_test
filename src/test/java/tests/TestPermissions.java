@@ -1,13 +1,23 @@
 package tests;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.GlassPage;
+import pages.LoginPage;
 import pages.PermissionsView;
+
+import java.net.MalformedURLException;
 
 public class TestPermissions extends BaseTest {
     private GlassPage glassPage = new GlassPage(driver);
     private PermissionsView permissionsView = new PermissionsView(driver);
+
+    @BeforeAll
+    protected static void setUp() throws MalformedURLException {
+        BaseTest.setUp();
+        new LoginPage(driver).loginWithCredentials("sysadmin", LOGIN_PW);
+    }
 
     @Test
     void browseProjectsPermissions(){
