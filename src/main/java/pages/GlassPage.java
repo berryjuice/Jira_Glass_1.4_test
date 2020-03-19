@@ -18,6 +18,7 @@ public class GlassPage extends Page {
 
     private By showTransitionLabels = By.xpath("//input[@id='show-transition-labels']");
     private By workflowLabels = By.xpath("//*[@id='workflow-designer1']//*[local-name()='svg']//*[local-name()='text']");
+    private By gearsIcons = By.xpath("//*[@id='glass-general-schemes-panel']//table//a");
 
     private By workflowQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/workflows')]");
     private By screensQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/screens')]");
@@ -28,8 +29,6 @@ public class GlassPage extends Page {
     private By peopleQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/roles')]");
     private By permissionsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/permissions')]");
     private By notificationsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/notifications')]");
-
-    private By gearsIcons = By.xpath("//*[@id='glass-general-schemes-panel']//table//a");
 
     public GlassPage(WebDriver driver) {
         super(driver);
@@ -63,7 +62,7 @@ public class GlassPage extends Page {
         for (WebElement element : elements) {
             try {
                 element.isDisplayed();
-            } catch (ElementNotVisibleException | NoSuchElementException e) {
+            } catch (ElementNotVisibleException | NoSuchElementException | TimeoutException e) {
                 return false;
             }
         }
