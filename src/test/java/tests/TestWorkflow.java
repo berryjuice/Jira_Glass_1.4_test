@@ -54,4 +54,40 @@ public class TestWorkflow extends BaseTest {
         String type = projectSHGPage.checkWorkflowConditions();
         Assertions.assertEquals("2", type);
     }
+
+    @Test
+    void transitionValidators() {
+        String validatorsNumber = projectSHGPage.checkValidatorsNumber();
+        Assertions.assertEquals("1", validatorsNumber);
+    }
+
+    @Test
+    void postFunctionNumbers() {
+        String postFunctions = projectSHGPage.checkPostFunctionsNumber();
+        projectSHGPage.transitionConditionsAll();
+        Assertions.assertEquals("Default\n"+"5\n"+"Custom\n"+"1", postFunctions);
+    }
+
+    @Test
+    void conditionsAll() {
+        String[] expectedTexts;
+        expectedTexts = new String[]{
+                "Only users in group jira-minions can execute this transition.",
+                "This transition will only execute if code has been committed against this issue."
+        };
+        String[] conditionsTexts = projectSHGPage.transitionConditionsAll();
+        Assertions.assertArrayEquals(expectedTexts, conditionsTexts);
+    }
+
+    /*
+    @Test
+    void conditionsAny() {
+        String[] expectedTexts;
+        expectedTexts = new String[]{
+                "Only users in group jira-minions can execute this transition.",
+                "This transition will only execute if code has been committed against this issue."
+        };
+        projectSHGPage.transitionConditionsAny();
+        //Assertions.assertArrayEquals(expectedTexts, conditionsTexts);
+    }*/
 }

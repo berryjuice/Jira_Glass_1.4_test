@@ -31,6 +31,14 @@ public class ProjectSHGPage extends Page {
     private By postFunctionsText5 = By.xpath("//div[@id=\"glass-transitions-postfunctions-panel-6\"]//div//div//ol//li[5]");
     private By postFunctionsText6 = By.xpath("//div[@id=\"glass-transitions-postfunctions-panel-6\"]//div//div//ol//li[6]");
     private By conditionNumber = By.xpath("//b[text()='ToTestAll']//ancestor::tr//td[5]");
+    private By validatorsNumber = By.xpath("//b[text()='ToTestAll']//ancestor::tr//td[6]");
+    private By postFunctionsNumber = By.xpath("//b[text()='ToTestAll']//ancestor::tr//td[7]");
+    private By conditionsTextAll1 = By.xpath("//div[@id='glass-transitions-conditions-panel-6']//div//div//ol//li");
+    private By conditionsTextAll2 = By.xpath("//div[@id='glass-transitions-conditions-panel-6']//div//div//ol//li[2]");
+    private By transitionNameAny = By.xpath("//tr[@class='transition-row']//td[@class='transition-name']//span//b[text()='ToTestAny']");
+    private By toTestAnyConditions = By.xpath("//div[@id='glass-workflow-transitions']//table//tbody//tr//td//span//b[text()='ToTestAny']");
+    private By transitionConditionsAny1 = By.xpath("//div[@id='glass-transitions-conditions-panel-2' and @aria-labelledby='aui-uid-100']//div//div//ol//li");
+    private By transitionConditionsAny2 = By.xpath("//*[@id='glass-transitions-conditions-panel-2']//div//div//ol//li[2]");
 
     // Methods
     public void navigateToSHGPage() {
@@ -95,4 +103,37 @@ public class ProjectSHGPage extends Page {
         return driver.findElement(conditionNumber).getText();
 
     }
+
+    public String checkValidatorsNumber() {
+        selectWorkflow();
+        return driver.findElement(validatorsNumber).getText();
+    }
+
+    public String checkPostFunctionsNumber() {
+        selectWorkflow();
+        System.out.println(driver.findElement(postFunctionsNumber).getText());
+        return driver.findElement(postFunctionsNumber).getText();
+    }
+
+    public String[] transitionConditionsAll() {
+        selectWorkflow();
+        driver.findElement(transitionName).click();
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(conditions)).click();
+        } catch (ElementNotInteractableException e) {}
+        String[] conditionsAllTexts = new String[2];
+        conditionsAllTexts[0] = driver.findElement(conditionsTextAll1).getText();
+        conditionsAllTexts[1] = driver.findElement(conditionsTextAll2).getText();
+        return conditionsAllTexts;
+    }
+
+    /*public void transitionConditionsAny() {
+        selectWorkflow();
+        driver.findElement(transitionNameAny).click();
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(toTestAnyConditions)).click();
+        } catch (ElementNotInteractableException e) {}
+        String text1 = driver.findElement(transitionConditionsAny2).getText();
+        System.out.println(text1);
+    }*/
 }
