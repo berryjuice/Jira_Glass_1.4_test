@@ -29,6 +29,8 @@ public class GlassPage extends Page {
     private By permissionsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/permissions')]");
     private By notificationsQuickLink = By.xpath("//a[contains(@href, '/plugins/servlet/project-config/SHG/notifications')]");
 
+    private By gearsIcons = By.xpath("//*[@id='glass-general-schemes-panel']//table//a");
+
     public GlassPage(WebDriver driver) {
         super(driver);
     }
@@ -49,10 +51,18 @@ public class GlassPage extends Page {
     }
 
     public boolean allLabelsVisible() {
-        List<WebElement> labels = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(workflowLabels));
-        for (WebElement label : labels) {
+        return areAllElementsVisible(workflowLabels);
+    }
+
+    public boolean gearsIconsVisible() {
+        return areAllElementsVisible(gearsIcons);
+    }
+
+    private boolean areAllElementsVisible(By ByForElements) {
+        List<WebElement> gears = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(gearsIcons));
+        for (WebElement gear : gears) {
             try {
-                label.isDisplayed();
+                gear.isDisplayed();
             } catch (ElementNotVisibleException | NoSuchElementException e) {
                 return false;
             }

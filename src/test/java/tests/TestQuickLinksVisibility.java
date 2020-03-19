@@ -25,4 +25,12 @@ public class TestQuickLinksVisibility extends BaseTest {
         Assertions.assertEquals(expectedResult, glassPage.isBasicSummaryQuickLinkExist());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"sysadmin", "projectadmin", "softwareuser"})
+    void gearIconsVisible(String user) {
+        loginPage.loginWithCredentials(user, LOGIN_PW);
+        glassPage.navigateToSchemesTab();
+        boolean expectedResult = user.equals("sysadmin");
+        Assertions.assertEquals(expectedResult, glassPage.gearsIconsVisible());
+    }
 }
