@@ -126,14 +126,4 @@ public class ProjectSHGPage extends Page {
         conditionsAllTexts[1] = driver.findElement(conditionsTextAll2).getText();
         return conditionsAllTexts;
     }
-
-    /*public void transitionConditionsAny() {
-        selectWorkflow();
-        driver.findElement(transitionNameAny).click();
-        try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(toTestAnyConditions)).click();
-        } catch (ElementNotInteractableException e) {}
-        String text1 = driver.findElement(transitionConditionsAny2).getText();
-        System.out.println(text1);
-    }*/
 }
