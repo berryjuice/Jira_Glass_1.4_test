@@ -22,16 +22,15 @@ public abstract class BaseTest {
 
     @BeforeAll
     protected static void setUp() throws MalformedURLException {
-        driver = new ChromeDriver();
-//        String fullGridUrl = GRID_URL.replace("{PASSWORD}", GRID_PW);
-//        switch (BROWSER) {
-//            case "chrome":
-//                driver = new RemoteWebDriver(new URL(fullGridUrl), new ChromeOptions());
-//                break;
-//            case "firefox":
-//                driver = new RemoteWebDriver(new URL(fullGridUrl), new FirefoxOptions());
-//                break;
-//        }
+        String fullGridUrl = GRID_URL.replace("{PASSWORD}", GRID_PW);
+        switch (BROWSER) {
+            case "chrome":
+                driver = new RemoteWebDriver(new URL(fullGridUrl), new ChromeOptions());
+                break;
+            case "firefox":
+                driver = new RemoteWebDriver(new URL(fullGridUrl), new FirefoxOptions());
+                break;
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
